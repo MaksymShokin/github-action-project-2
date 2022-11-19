@@ -4,6 +4,14 @@ on:
     types:
       - opened
       - synchronize
+    branches: master
+  push:
+    branches:
+      - master
+      - 'dev-*' # * means all characters except / example dev-something
+      - 'feat/**' # ** means all characters example feat/new-feature/slack
+    paths-ignore:
+      - '.github/workflows/*'
 jobs:
   deploy:
     runs-on: ubuntu-latest
